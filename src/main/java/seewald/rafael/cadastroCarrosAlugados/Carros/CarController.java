@@ -1,4 +1,4 @@
-package seewald.rafael.cadastroCarrosAlugados;
+package seewald.rafael.cadastroCarrosAlugados.Carros;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,11 +1,10 @@
-package seewald.rafael.cadastroCarrosAlugados;
+package seewald.rafael.cadastroCarrosAlugados.Carros;
 
 import jakarta.persistence.*;
-
-import java.awt.*;
+import seewald.rafael.cadastroCarrosAlugados.Clientes.ClientsModel;
 
 @Entity
-@Table(name="tb_cadastro")
+@Table(name="tb_carros")
 public class CarModel {
 
     @Id
@@ -17,6 +16,10 @@ public class CarModel {
     private String color;
     private String plate;
     private String manufacture;
+
+    @ManyToOne
+    @JoinColumn(name = "carros_id")
+    private ClientsModel clientes;
 
     public CarModel() {
     }
@@ -38,9 +41,7 @@ public class CarModel {
         return year;
     }
 
-    public boolean isAvailable() {
-        return available;
-    }
+    public boolean isAvailable() { return available; }
 
     public String getColor() {
         return color;
