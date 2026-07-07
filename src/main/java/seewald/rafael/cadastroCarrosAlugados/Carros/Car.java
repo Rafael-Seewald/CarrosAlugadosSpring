@@ -1,11 +1,10 @@
 package seewald.rafael.cadastroCarrosAlugados.Carros;
 
 import jakarta.persistence.*;
-import seewald.rafael.cadastroCarrosAlugados.Clientes.ClientsModel;
 
 @Entity
 @Table(name="tb_carros")
-public class CarModel {
+public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,22 +14,16 @@ public class CarModel {
     private boolean available;
     private String color;
     private String plate;
-    private String manufacture;
 
-    @ManyToOne
-    @JoinColumn(name = "carros_id")
-    private ClientsModel clientes;
-
-    public CarModel() {
+    public Car() {
     }
 
-    public CarModel(String model, int year, boolean available, String color, String plate, String manufacture) {
+    public Car(String model, int year, boolean available, String color, String plate, String manufacture) {
         this.model = model;
         this.year = year;
         this.available = available;
         this.color = color;
         this.plate = plate;
-        this.manufacture = manufacture;
     }
 
     public String getModel() {
@@ -51,10 +44,6 @@ public class CarModel {
         return plate;
     }
 
-    public String getManufacture() {
-        return manufacture;
-    }
-
     public void setModel(String model) {
         this.model = model;
     }
@@ -73,9 +62,5 @@ public class CarModel {
 
     public void setPlate(String plate) {
         this.plate = plate;
-    }
-
-    public void setManufacture(String manufacture) {
-        this.manufacture = manufacture;
     }
 }
